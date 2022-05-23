@@ -7,7 +7,6 @@ const Business_summary = () => {
         BUISINESS SUMMARY
       </h1>
       <div class="m-11 stats stats-vertical lg:stats-horizontal shadow">
-
         <div class="stat">
           <div class="stat-figure text-secondary">
             <svg
@@ -24,9 +23,8 @@ const Business_summary = () => {
               ></path>
             </svg>
           </div>
-          <div class="stat-title">Downloads</div>
-          <div class="stat-value">31K</div>
-          <div class="stat-desc">Jan 1st - Feb 1st</div>
+          <div class="stat-value">100+</div>
+          <div class="stat-title text-teal-500 text-xl">Customers</div>
         </div>
         <div class="stat">
           <div class="stat-figure text-secondary">
@@ -44,9 +42,8 @@ const Business_summary = () => {
               ></path>
             </svg>
           </div>
-          <div class="stat-title">Downloads</div>
-          <div class="stat-value">31K</div>
-          <div class="stat-desc">Jan 1st - Feb 1st</div>
+          <div class="stat-value">120M+</div>
+          <div class="stat-title text-teal-500 text-xl">Annual Revenue</div>
         </div>
         <div class="stat">
           <div class="stat-figure text-secondary">
@@ -64,9 +61,8 @@ const Business_summary = () => {
               ></path>
             </svg>
           </div>
-          <div class="stat-title">Downloads</div>
-          <div class="stat-value">31K</div>
-          <div class="stat-desc">Jan 1st - Feb 1st</div>
+          <div class="stat-value">33K+</div>
+          <div class="stat-title text-teal-500 text-xl">Reviews</div>
         </div>
         <div class="stat">
           <div class="stat-figure text-secondary">
@@ -84,9 +80,8 @@ const Business_summary = () => {
               ></path>
             </svg>
           </div>
-          <div class="stat-title">Downloads</div>
-          <div class="stat-value">31K</div>
-          <div class="stat-desc">Jan 1st - Feb 1st</div>
+          <div class="stat-value">50+</div>
+          <div class="stat-title text-teal-500 text-xl">Tools</div>
         </div>
       </div>
     </div>

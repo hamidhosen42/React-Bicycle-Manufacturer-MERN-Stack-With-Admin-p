@@ -1,5 +1,5 @@
 import React from "react";
-import cycle1 from "../../assets/images/banner1.png";
+import cycle1 from "../../assets/images/banner1.jpg";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 
