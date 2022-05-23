@@ -7,11 +7,13 @@ import MakeAppointment from './MakeAppointment';
 import Services from './Services';
 import Testimonials from './Testimonials';
 import Treatmant from './Treatmant';
+import Business_summary from '../Business_summary/Business_summary';
 
 const Home = () => {
     return (
         <div>
            <Banner></Banner>
+           <Business_summary></Business_summary>
            <Info></Info>
            <Services></Services>
            <Treatmant></Treatmant>
