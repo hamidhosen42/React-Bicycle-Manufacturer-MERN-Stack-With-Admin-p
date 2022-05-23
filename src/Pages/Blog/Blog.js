@@ -74,16 +74,18 @@ const Blog = () => {
             description, etc. How will you implement a search to find products
             by name?
           </h2>
-          <a href="https://github.com/hamidhosen42/js/blob/main/blog.js" alt="">
+          <a
+            target="_blank"
+            className="text-success"
+            href="https://github.com/hamidhosen42/js/blob/main/blog.js"
+            alt=""
+          >
             Code Link
           </a>
           <p>
             At first array of products declare.Then find the product name using
-            array.if this product name find keyword using then all information print.
-          </p>
-          <p>
-            At first array of products .Then find the product name using
-            array.if this product name find then all information print.
+            array.if this product name find keyword using then all information
+            print.
           </p>
         </div>
       </div>
