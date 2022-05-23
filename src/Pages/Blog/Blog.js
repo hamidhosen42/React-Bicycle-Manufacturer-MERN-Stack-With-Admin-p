@@ -68,7 +68,11 @@ const Blog = () => {
         </div>
       </div>
       <div className="card lg:max-w-lg bg-base-100 shadow-xl m-10">
-        <div className="card-body items-center text-center"></div>
+        <div className="card-body items-center text-center">
+            <p>
+                
+            </p>
+        </div>
       </div>
       <div className="card lg:max-w-lg bg-base-100 shadow-xl m-10">
         <div className="card-body items-center text-center">
