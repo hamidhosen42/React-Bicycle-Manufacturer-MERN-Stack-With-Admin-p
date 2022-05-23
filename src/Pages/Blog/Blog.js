@@ -69,9 +69,22 @@ const Blog = () => {
       </div>
       <div className="card lg:max-w-lg bg-base-100 shadow-xl m-10">
         <div className="card-body items-center text-center">
-            <p>
-                
-            </p>
+          <h2 className="font-bold">
+            You have an array of products. Each product has a name, price,
+            description, etc. How will you implement a search to find products
+            by name?
+          </h2>
+          <a href="https://github.com/hamidhosen42/js/blob/main/blog.js" alt="">
+            Code Link
+          </a>
+          <p>
+            At first array of products declare.Then find the product name using
+            array.if this product name find keyword using then all information print.
+          </p>
+          <p>
+            At first array of products .Then find the product name using
+            array.if this product name find then all information print.
+          </p>
         </div>
       </div>
       <div className="card lg:max-w-lg bg-base-100 shadow-xl m-10">
