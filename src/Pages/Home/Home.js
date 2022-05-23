@@ -2,21 +2,17 @@ import React from 'react';
 import Banner from './Banner';
 import Contact from './Contact';
 import Footer from '../Shared/Footer';
-import Info from './Info';
-import MakeAppointment from './MakeAppointment';
 import Services from './Services';
-import Treatmant from './Treatmant';
 import Business_summary from '../Business_summary/Business_summary';
+import Manpart from './Manpart';
 
 const Home = () => {
     return (
         <div>
            <Banner></Banner>
            <Business_summary></Business_summary>
-           <Info></Info>
            <Services></Services>
-           <Treatmant></Treatmant>
-           <MakeAppointment></MakeAppointment>
+           <Manpart></Manpart>
            <Contact></Contact>
            <Footer></Footer>
         </div>

@@ -39,11 +39,6 @@ const Navbar = () => {
           Blog
         </Link>
       </li>
-      <li>
-        <Link className="font-bold" to="/about">
-          ABOUT
-        </Link>
-      </li>
       {user && (
         <li>
           <Link className="font-bold" to="/dashboard">

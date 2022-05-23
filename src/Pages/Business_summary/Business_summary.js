@@ -2,7 +2,7 @@ import React from "react";
 
 const Business_summary = () => {
   return (
-    <div className="card shadow-2xl m-11">
+    <div className="card shadow-xl m-11">
       <h1 className=" pt-10 font-bold text-center text-2xl text-teal-500">
         BUISINESS SUMMARY
       </h1>
