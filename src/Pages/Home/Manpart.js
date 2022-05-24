@@ -17,7 +17,7 @@ const Manpart = () => {
             <div class="max-w-md">
               <h1 class="mb-5 text-5xl font-bold">Road Bikes</h1>
               <h2 class="mb-5 text-2xl">Powerful and easy to use</h2>
-              <button class="btn btn-primary">SHOP NOW</button>
+              <button class="btn btn-primary">BUY NOW</button>
             </div>
           </div>
         </div>
@@ -34,7 +34,7 @@ const Manpart = () => {
             <div class="max-w-md">
               <h1 class="mb-5 text-5xl font-bold">Women’s bikes</h1>
               <h2 class="mb-5 text-2xl">Helping to inspire women in sport</h2>
-              <button class="btn btn-primary">SHOP NOW</button>
+              <button class="btn btn-primary">BUY NOW</button>
             </div>
           </div>
         </div>

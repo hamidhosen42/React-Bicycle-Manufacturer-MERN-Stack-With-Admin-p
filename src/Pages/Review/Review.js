@@ -9,12 +9,12 @@ const Review = (props) => {
     props.review;
   return (
     <div className="card lg:max-w-lg bg-base-100 shadow-xl">
-      <figure className="px-10 pt-10">
+      <figure>
         <img src={img} alt="Shoes" className="rounded-xl img-height" />
       </figure>
-      <div className="card-body items-center text-center">
-        <h2 className="card-title">Name:{name}</h2>
-        <p>
+      <div className="card-body items-center ">
+        <h2 className="card-title text-start">Name:{name}</h2>
+        <p className="text-justify">
           {sort_details.slice(0, 35)
             ? sort_details.slice(0, 35) + "..."
             : sort_details}

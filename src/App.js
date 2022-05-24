@@ -20,6 +20,7 @@ import Payment from "./Pages/Dashboard/Payment";
 import NotFound from "./Pages/Shared/NotFound";
 import Portfolio from "./Pages/My Portfolio/Portfolio";
 import Blog from "./Pages/Blog/Blog";
+import PartDetails from "./Pages/PartDetails/PartDetails";
 
 function App() {
   return (
@@ -28,6 +29,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
+        <Route
+          path="/part/:partId"
+          element={
+            <RequireAuth>
+              <PartDetails></PartDetails>
+            </RequireAuth>
+          }
+        ></Route>
         <Route
           path="/appointment"
           element={
