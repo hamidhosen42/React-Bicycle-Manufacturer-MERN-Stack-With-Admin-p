@@ -1,8 +1,11 @@
 import React from "react";
 import bgimg from "../../assets/images/banner1.jpg";
 import PrimaryButton from "../Shared/PrimaryButton";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
 
 const Contact = () => {
+  const [user] = useAuthState(auth);
   return (
     <div
       style={{
@@ -16,11 +19,14 @@ const Contact = () => {
       <div className="grid grid-cols-1 justify-items-center gap-5">
         <input
           type="text"
-          placeholder="Your Name"
+          disabled
+          value={user?.displayName || ""}
           className="input w-full max-w-md"
         />
         <input
-          type="text"
+          type="email"
+          disabled
+          value={user?.email || ""}
           placeholder="Email Address"
           className="input w-full max-w-md"
         />
