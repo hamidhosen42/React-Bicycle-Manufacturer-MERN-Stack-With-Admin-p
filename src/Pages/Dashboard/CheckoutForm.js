@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { toast } from "react-toastify";
 
-const CheckoutForm = ({ appointment }) => {
+const CheckoutForm = ({ order }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [cardError, setCardError] = useState("");
@@ -10,16 +11,16 @@ const CheckoutForm = ({ appointment }) => {
   const [transactionId, setTransactionId] = useState("");
   const [clientSecret, setClientSecret] = useState("");
 
-  const { _id, price, patientEmail, patientName } = appointment;
+  const { _id, totalprice, email, displayName } = order;
 
   useEffect(() => {
     fetch("http://localhost:5000/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        // authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
-      body: JSON.stringify({ price }),
+      body: JSON.stringify({ totalprice }),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -27,7 +28,7 @@ const CheckoutForm = ({ appointment }) => {
           setClientSecret(data.clientSecret);
         }
       });
-  }, [price]);
+  }, [totalprice]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -57,8 +58,8 @@ const CheckoutForm = ({ appointment }) => {
         payment_method: {
           card: card,
           billing_details: {
-            name: patientName,
-            email: patientEmail,
+            name: displayName,
+            email: email,
           },
         },
       });
@@ -69,27 +70,26 @@ const CheckoutForm = ({ appointment }) => {
     } else {
       setCardError("");
       setTransactionId(paymentIntent.id);
-      console.log(paymentIntent);
       setSuccess("Congrats! Your payment is completed.");
 
       //store payment on database
       const payment = {
-        appointment: _id,
+        order: _id,
         transactionId: paymentIntent.id,
       };
 
-      fetch(`http://localhost:5000/booking/${_id}`, {
+      fetch(`http://localhost:5000/order/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          // authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
         body: JSON.stringify(payment),
       })
         .then((res) => res.json())
         .then((data) => {
           setProcessing(false);
-          console.log(data);
+         toast("Your payment success");
         });
     }
   };

@@ -42,7 +42,7 @@ const Navbar = () => {
       {user && (
         <li>
           <Link className="font-bold" to="/dashboard">
-            DASHBOARD
+            Dahboard
           </Link>
         </li>
       )}

@@ -12,8 +12,8 @@ const Dashboard = () => {
     <div className="drawer drawer-mobile">
       <input id="dashboard-sidebar" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content p-5">
-        <h2 className="text-2xl font-bold text-purple-500">
-          Welcome to your Dashboard
+        <h2 className="text-2xl font-bold text-purple-500 text-center">
+          Welcome To My Dashboard
         </h2>
         <Outlet></Outlet>
       </div>
@@ -22,7 +22,7 @@ const Dashboard = () => {
         <ul className="menu p-4 overflow-y-auto w-40 bg-base-100 text-base-content">
           {/* <!-- Sidebar content here --> */}
           <li>
-            <Link to="/dashboard">My Appointments</Link>
+            <Link to="/dashboard">My Orders</Link>
           </li>
           <li>
             <Link to="/dashboard/review">My Reviews</Link>
