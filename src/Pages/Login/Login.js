@@ -31,15 +31,9 @@ const Login = () => {
 
   let from = location.state?.from?.pathname || "/";
 
-  //useEffect use yes or no it is just console error
   if (token) {
     navigate(from, { replace: true });
   }
-  // useEffect(() => {
-  //   if (token) {
-  //     navigate(from, { replace: true });
-  //   }
-  // }, [token, from, navigate]);
 
   if (gLoading || gooLoading || gitLoading) {
     return <Loading></Loading>;

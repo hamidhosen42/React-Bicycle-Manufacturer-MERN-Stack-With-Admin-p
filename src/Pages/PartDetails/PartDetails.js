@@ -52,7 +52,6 @@ const PartDetails = () => {
         .then((res) => res.json())
         .then((inserted) => {
           toast("Order Success");
-          data.reset();
         });
     }
   };

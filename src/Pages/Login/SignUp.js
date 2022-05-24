@@ -22,7 +22,6 @@ const SignUp = () => {
 
   const [updateProfile, updating, upError] = useUpdateProfile(auth);
 
-  // user register than email create and db put
   const [token] = useToken(gUser || gooUser || gitUser);
 
   const {
@@ -53,7 +52,7 @@ const SignUp = () => {
 
   if(token)
   {
-    navigate("/appointment");
+    navigate("/");
   }
 
   const onSubmit = async (data) => {
