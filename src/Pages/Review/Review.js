@@ -5,7 +5,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import "./Review.css";
 
 const Review = (props) => {
-  const { name, img, rating, sort_details, details_review, date } =
+  const { name, img, rating,  details_review} =
     props.review;
   return (
     <div className="card lg:max-w-lg bg-base-100 shadow-xl">
@@ -14,11 +14,6 @@ const Review = (props) => {
       </figure>
       <div className="card-body items-center ">
         <h2 className="card-title text-start">Name:{name}</h2>
-        <p className="text-justify">
-          {sort_details.slice(0, 35)
-            ? sort_details.slice(0, 35) + "..."
-            : sort_details}
-        </p>
         <p className="text-center">
           <Rating
             initialRating={rating}
@@ -30,9 +25,7 @@ const Review = (props) => {
           ></Rating>
         </p>
         <p>
-          {details_review.slice(0, 90)
-            ? details_review.slice(0, 90) + "...."
-            : details_review}
+          {details_review}
         </p>
       </div>
     </div>

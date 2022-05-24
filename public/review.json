@@ -1,56 +1,38 @@
 [
     {
-        "id":1,
         "name": "Liam",
-        "sort_details": "Friendly delivery drivers and good communication",
         "details_review":"We have had 2 fruit and veg deliveries now and have been really pleased with the variety and quality. Friendly delivery drivers and good communication over Facebook 👍🏻😊",
         "img": "https://media.istockphoto.com/photos/cheerful-fashionable-adult_man-in-city-setting-picture-id1310533180?b=1&k=20&m=1310533180&s=170667a&w=0&h=EdRuvIkrMifhyZJkHXf5Pk68ri44_g7OFnU8lIdbc-c=",
-        "rating": "4",
-        "date":"20 June 2021"
+        "rating": "4"
     },
     {
-        "id":2,
-        "name": "Noah",
-        "sort_details": "FLocal produce · Great selection - Fresh food",
-        "details_review":"We have just had our first box delivered, absolutely delighted. The fruit and veg smell great and look wonderful, really pleased. The delivery was fast, food packed well and we will use again.",
-        "img": "https://media.istockphoto.com/photos/smiling-mixed-race-mature-man-on-grey-background-picture-id1319763895?b=1&k=20&m=1319763895&s=170667a&w=0&h=jhqKyg62cQVZ-NjDQjpcenCdHDrprkN4caRjk4K76E8=",
-        "rating": "5",
-        "date":"11 June 2021"
+        "name": "Liam",
+        "details_review":"We have had 2 fruit and veg deliveries now and have been really pleased with the variety and quality. Friendly delivery drivers and good communication over Facebook 👍🏻😊",
+        "img": "https://media.istockphoto.com/photos/cheerful-fashionable-adult_man-in-city-setting-picture-id1310533180?b=1&k=20&m=1310533180&s=170667a&w=0&h=EdRuvIkrMifhyZJkHXf5Pk68ri44_g7OFnU8lIdbc-c=",
+        "rating": "4"
     },
     {
-        "id":3,
-        "name": "Olive",
-        "sort_details": "Impressed with quality and quantity",
-        "details_review":"Thank you so much for your wonderful service as you so kindly changed the ordered items. I am a firm believer of supporting local businesses and using local produce at every opportunity.",
-        "img": "https://media.istockphoto.com/photos/fit_man-standing-outdoors_in-a-city-picture-id1299360138?b=1&k=20&m=1299360138&s=170667a&w=0&h=qDYNwRf6CwbkyWK-WEmhMJ_KaZ4hJFmy_89PFdz6AsI=",
-        "rating": "4.5",
-        "date":"17 July 2021"
+        "name": "Liam",
+        "details_review":"We have had 2 fruit and veg deliveries now and have been really pleased with the variety and quality. Friendly delivery drivers and good communication over Facebook 👍🏻😊",
+        "img": "https://media.istockphoto.com/photos/cheerful-fashionable-adult_man-in-city-setting-picture-id1310533180?b=1&k=20&m=1310533180&s=170667a&w=0&h=EdRuvIkrMifhyZJkHXf5Pk68ri44_g7OFnU8lIdbc-c=",
+        "rating": "4"
     },
     {
-        "id":4,
-        "name": "Elijah",
-        "sort_details": "Easily ordered online and delivered quickly.",
-        "details_review":"Lovely fruit box - easily ordered online and delivered quickly. Great service. Thank you so much",
-        "img": "https://images.unsplash.com/photo-1552642986-ccb41e7059e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aGFuZHNvbWUlMjBtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=1000&q=60",
-        "rating": "5",
-        "date":"22 May 2021"
+        "name": "Liam",
+        "details_review":"We have had 2 fruit and veg deliveries now and have been really pleased with the variety and quality. Friendly delivery drivers and good communication over Facebook 👍🏻😊",
+        "img": "https://media.istockphoto.com/photos/cheerful-fashionable-adult_man-in-city-setting-picture-id1310533180?b=1&k=20&m=1310533180&s=170667a&w=0&h=EdRuvIkrMifhyZJkHXf5Pk68ri44_g7OFnU8lIdbc-c=",
+        "rating": "4"
     },
     {
-        "id":5,
-        "name": "William",
-        "sort_details": "The quality and freshness are excellent. ",
-        "details_review":"I live in Wales but wanted to send a gift to my mum. She received her fruit hamper plus some extras this morning and was really pleased. The quality and freshness are excellent. Thank you so much x",
-        "img": "https://images.unsplash.com/photo-1600804889194-e6fbf08ddb39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aGFuZHNvbWUlMjBtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=1000&q=60",
-        "rating": "4.5",
-        "date":"15 June 2020"
+        "name": "Liam",
+        "details_review":"We have had 2 fruit and veg deliveries now and have been really pleased with the variety and quality. Friendly delivery drivers and good communication over Facebook 👍🏻😊",
+        "img": "https://media.istockphoto.com/photos/cheerful-fashionable-adult_man-in-city-setting-picture-id1310533180?b=1&k=20&m=1310533180&s=170667a&w=0&h=EdRuvIkrMifhyZJkHXf5Pk68ri44_g7OFnU8lIdbc-c=",
+        "rating": "2"
     },
     {
-        "id":6,
-        "name": "James",
-        "sort_details": "All delivered completely contact free",
-        "details_review":"Thank you for the dairy and veg box delivered today. All delivered completely contact free. Every looks lovely and excellent quality. 5* service.",
-        "img": "https://images.unsplash.com/photo-1588731222899-68315ddd5e8e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8aGFuZHNvbWUlMjBtYW58ZW58MHx8MHx8&auto=format&fit=crop&w=1000&q=60",
-        "rating": "4",
-        "date":"01 May 2021"
+         "name": "Liam",
+        "details_review":"We have had 2 fruit and veg deliveries now and have been really pleased with the variety and quality. Friendly delivery drivers and good communication over Facebook 👍🏻😊",
+        "img": "https://media.istockphoto.com/photos/cheerful-fashionable-adult_man-in-city-setting-picture-id1310533180?b=1&k=20&m=1310533180&s=170667a&w=0&h=EdRuvIkrMifhyZJkHXf5Pk68ri44_g7OFnU8lIdbc-c=",
+        "rating": "4"
     }
 ]

@@ -10,6 +10,26 @@ const MyOrder = () => {
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
 
+    const handleUserDelete = (id) => {
+      const proceed = window.confirm("Are you sure you want to delete??");
+
+      if (proceed) {
+        console.log("Deleting user with id", id);
+        const url = `http://localhost:5000/order/${id}`;
+
+        fetch(url, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              const remaining = user.filter((user) => user._id !== id);
+              setOrder(remaining);
+            }
+          });
+      }
+    };
+
   useEffect(() => {
     if (user) {
       fetch(`http://localhost:5000/order?orderEmail=${user.email}`, {
@@ -78,8 +98,9 @@ const MyOrder = () => {
                 </td>
                 <td>
                   <label
+                    onClick={() => handleUserDelete(a._id)}
                     disabled={a.totalprice && a.paid}
-                    for="booking-modal"
+                    // for="booking-modal"
                     class="btn btn-xs text-white"
                   >
                     Cancel

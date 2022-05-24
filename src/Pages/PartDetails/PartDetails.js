@@ -78,14 +78,11 @@ const PartDetails = () => {
             </div>
           </div>
         </div>
-        <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mt-11">
+        <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mt-1">
           <div class="card-body">
             <form onSubmit={handleSubmit(onSubmit)}>
               {/* ----name-------- */}
               <div className="form-control w-full max-w-xs">
-                <label className="label">
-                  <span className="label-text">Name</span>
-                </label>
                 <input
                   type="text"
                   disabled
@@ -93,10 +90,7 @@ const PartDetails = () => {
                   className="input input-bordered w-full max-w-xs"
                 />
               </div>
-              <div className="form-control w-full max-w-xs">
-                <label className="label">
-                  <span className="label-text">Parts Name</span>
-                </label>
+              <div className="form-control w-full max-w-xs  mt-4">
                 <input
                   type="text"
                   disabled
@@ -107,11 +101,7 @@ const PartDetails = () => {
               </div>
 
               {/* -------email validation---- */}
-              <div className="form-control w-full max-w-xs">
-                <label className="label">
-                  <span className="label-text">Email</span>
-                </label>
-
+              <div className="form-control w-full max-w-xs mt-4">
                 <input
                   type="email"
                   disabled
@@ -122,11 +112,7 @@ const PartDetails = () => {
               </div>
 
               {/* ------address validation----- */}
-              <div className="form-control w-full max-w-xs">
-                <label className="label">
-                  <span className="label-text">Address</span>
-                </label>
-
+              <div className="form-control w-full max-w-xs  mt-4">
                 <input
                   type="text"
                   placeholder="Address"
@@ -149,11 +135,7 @@ const PartDetails = () => {
               </div>
 
               {/* ------phone validation----- */}
-              <div className="form-control w-full max-w-xs">
-                <label className="label">
-                  <span className="label-text">Phone Number</span>
-                </label>
-
+              <div className="form-control w-full max-w-xs  mt-4">
                 <input
                   type="text"
                   placeholder="Phone Number"

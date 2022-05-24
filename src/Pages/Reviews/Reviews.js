@@ -1,14 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Review from "../Review/Review";
+import { useQuery } from "react-query";
+import Loading from "../Shared/Loading";
 
 const Reviews = () => {
-  const [reviews, setReview] = useState([]);
 
-  useEffect(() => {
-    fetch("review.json")
-      .then((res) => res.json())
-      .then((data) => setReview(data));
-  }, []);
+    const { data: reviews, isLoading } = useQuery("reviews", () =>
+      fetch("http://localhost:5000/review").then((res) => res.json())
+    );
+
+    if(isLoading)
+    {
+      return <Loading></Loading>
+    }
+
   return (
     <div className="my-28 px-12">
       <h1 className="pb-10 font-bold text-center text-2xl text-teal-500 pt-5 ">
