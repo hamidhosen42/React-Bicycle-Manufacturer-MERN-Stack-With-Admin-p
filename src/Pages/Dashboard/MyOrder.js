@@ -14,8 +14,7 @@ const MyOrder = () => {
       const proceed = window.confirm("Are you sure you want to delete??");
 
       if (proceed) {
-        console.log("Deleting user with id", id);
-        const url = `http://localhost:5000/order/${id}`;
+        const url = `http://localhost:5000/user/${id}`;
 
         fetch(url, {
           method: "DELETE",

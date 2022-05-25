@@ -1,10 +1,8 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { useQuery } from "react-query";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
-import Loading from "../Shared/Loading";
 
 const MyReview = () => {
   const [user] = useAuthState(auth);
@@ -34,7 +32,7 @@ const MyReview = () => {
             displayName: user.displayName,
             email: user.email,
             rating: data.rating,
-            description: data.description,
+            details_review: data.description,
             img: img,
           };
           // send to your database

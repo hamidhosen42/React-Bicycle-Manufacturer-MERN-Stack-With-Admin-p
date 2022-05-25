@@ -2,7 +2,26 @@ import React from "react";
 import { toast } from "react-toastify";
 
 const UserRow = ({ user, index, refetch }) => {
-  const { email, role } = user;
+  const { email, _id,role } = user;
+
+  const handleUserDelete = (id) => {
+    const proceed = window.confirm("Are you sure you want to remove user?");
+
+    if (proceed) {
+      console.log("Deleting user with id", id);
+      const url = `http://localhost:5000/user/${id}`;
+
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            const remaining = user.filter((user) => user._id !== id);
+          }
+        });
+    }
+  };
 
   const makeAdmin = () => {
     fetch(`http://localhost:5000/user/admin/${email}`, {
@@ -38,7 +57,9 @@ const UserRow = ({ user, index, refetch }) => {
         )}
       </td>
       <td>
-        <button className="btn btn-xs">Remove User</button>
+        <button onClick={() => handleUserDelete(_id)} className="btn btn-xs">
+          Remove User
+        </button>
       </td>
     </tr>
   );

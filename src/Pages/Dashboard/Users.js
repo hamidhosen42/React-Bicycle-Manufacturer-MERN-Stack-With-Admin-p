@@ -9,7 +9,7 @@ const Users = () => {
     data: users,
     isLoading,
     refetch,
-  } = useQuery("users", () =>
+  } = useQuery("user", () =>
     fetch("http://localhost:5000/user", {
       method: "GET",
       headers: {
@@ -32,7 +32,7 @@ const Users = () => {
               <th></th>
               <th>Name</th>
               <th>Job</th>
-              <th>Favorite Color</th>
+              <th>Remove User</th>
             </tr>
           </thead>
           <tbody>

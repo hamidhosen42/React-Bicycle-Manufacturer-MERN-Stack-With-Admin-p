@@ -1,10 +1,11 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useQuery } from "react-query";
 import { toast } from "react-toastify";
-import Loading from "../Shared/Loading";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
 
-const AddDoctor = () => {
+const AddProduct = () => {
+  const [user] = useAuthState(auth);
   const {
     register,
     formState: { errors },
@@ -12,20 +13,8 @@ const AddDoctor = () => {
     reset,
   } = useForm();
 
-  const { data: services, isLoading } = useQuery("services", () =>
-    fetch("http://localhost:5000/service").then((res) => res.json())
-  );
-
   const imageStorageKey = "b322e906e4395f8164d3664316fe1b6b";
 
-  /**
-   * 3 ways to store images
-   * 1. Third party storage //Free open public storage is ok for Practice project
-   * 2. Your own storage in your own server (file system)
-   * 3. Database: Mongodb
-   *
-   * YUP: to validate file: Search: Yup file validation for react hook form
-   */
   const onSubmit = async (data) => {
     const image = data.image[0];
     const formData = new FormData();
@@ -39,51 +28,58 @@ const AddDoctor = () => {
       .then((result) => {
         if (result.success) {
           const img = result.data.url;
-          const doctor = {
+          const profile = {
+            email: user.email,
             name: data.name,
-            email: data.email,
-            specialty: data.specialty,
+            price: data.price,
+            minimum_quantity: data.quantity,
+            available_quantity: data.available,
+            description: data.description,
             img: img,
           };
+
+          console.log(profile);
           // send to your database
-          fetch("http://localhost:5000/doctor", {
+          fetch("http://localhost:5000/addProduct", {
             method: "POST",
             headers: {
               "content-type": "application/json",
               authorization: `Bearer ${localStorage.getItem("accessToken")}`,
             },
-            body: JSON.stringify(doctor),
+            body: JSON.stringify(profile),
           })
             .then((res) => res.json())
             .then((inserted) => {
               if (inserted.insertedId) {
-                toast.success("Doctor added successfully");
+                toast.success("Product added successfully");
                 reset();
               } else {
-                toast.error("Failed to add the doctor");
+                toast.error("Failed to add the Product");
               }
             });
         }
       });
   };
 
-  if (isLoading) {
-    return <Loading></Loading>;
-  }
-
   return (
-    <div className="mb-20 flex h-screen justify-center items-center">
+    <div className="mb-20 mt-11 flex h-screen justify-center items-center">
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">
-          <h2 className="text-2xl">Add a New Doctor</h2>
+          <h2 className="text-2xl">Add a New Product</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="form-control w-full max-w-xs">
-              <label className="label">
-                <span className="label-text">Name</span>
-              </label>
+            <div className="form-control w-full max-w-xs mt-4">
+              <input
+                type="email"
+                disabled
+                value={user?.email || ""}
+                className="input input-bordered w-full max-w-xs"
+                {...register("email")}
+              />
+            </div>
+            <div className="form-control w-full max-w-xs mt-4">
               <input
                 type="text"
-                placeholder="Your Name"
+                placeholder="Parts Name"
                 className="input input-bordered w-full max-w-xs"
                 {...register("name", {
                   required: {
@@ -101,53 +97,95 @@ const AddDoctor = () => {
               </label>
             </div>
 
+            {/* ------price validation----- */}
             <div className="form-control w-full max-w-xs">
-              <label className="label">
-                <span className="label-text">Email</span>
-              </label>
               <input
-                type="email"
-                placeholder="Your Email"
+                type="text"
+                placeholder="Price (Per unit)"
                 className="input input-bordered w-full max-w-xs"
-                {...register("email", {
+                {...register("price", {
                   required: {
                     value: true,
-                    message: "Email is Required",
-                  },
-                  pattern: {
-                    value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                    message: "Provide a valid Email",
+                    message: "Price is Required",
                   },
                 })}
               />
+
               <label className="label">
-                {errors.email?.type === "required" && (
+                {errors.price?.type === "required" && (
                   <span className="label-text-alt text-red-500">
-                    {errors.email.message}
-                  </span>
-                )}
-                {errors.email?.type === "pattern" && (
-                  <span className="label-text-alt text-red-500">
-                    {errors.email.message}
+                    {errors.price.message}
                   </span>
                 )}
               </label>
             </div>
 
+            {/* ------Minimum Quantity----- */}
             <div className="form-control w-full max-w-xs">
+              <input
+                type="number"
+                placeholder="Minimum Quantity"
+                className="input input-bordered w-full max-w-xs"
+                {...register("quantity", {
+                  required: {
+                    value: true,
+                    message: "Quantity is Required",
+                  },
+                })}
+              />
+
               <label className="label">
-                <span className="label-text">Specialty</span>
+                {errors.quantity?.type === "required" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.quantity.message}
+                  </span>
+                )}
               </label>
-              <select
-                {...register("specialty")}
-                className="select input-bordered w-full max-w-xs"
-              >
-                {services.map((service) => (
-                  <option key={service._id} value={service.name}>
-                    {service.name}
-                  </option>
-                ))}
-              </select>
+            </div>
+
+            {/* ------Available Quantity----- */}
+            <div className="form-control w-full max-w-xs">
+              <input
+                type="number"
+                placeholder="Available Quantity"
+                className="input input-bordered w-full max-w-xs"
+                {...register("available", {
+                  required: {
+                    value: true,
+                    message: "Available is Required",
+                  },
+                })}
+              />
+
+              <label className="label">
+                {errors.available?.type === "required" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.available.message}
+                  </span>
+                )}
+              </label>
+            </div>
+
+            <div className="form-control w-full max-w-xs ">
+              <input
+                type="description"
+                placeholder="Description"
+                className="input input-bordered w-full max-w-xs"
+                {...register("description", {
+                  required: {
+                    value: true,
+                    message: "Description is Required",
+                  },
+                })}
+              />
+
+              <label className="label">
+                {errors.description?.type === "required" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.description.message}
+                  </span>
+                )}
+              </label>
             </div>
 
             <div className="form-control w-full max-w-xs ">
@@ -185,4 +223,4 @@ const AddDoctor = () => {
   );
 };
 
-export default AddDoctor;
+export default AddProduct;

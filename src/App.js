@@ -9,18 +9,19 @@ import Navbar from "./Pages/Shared/Navbar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Dashboard from "./Pages/Dashboard/Dashboard";
-import MyHistory from "./Pages/Dashboard/MyHistory";
 import MyReview from "./Pages/Dashboard/MyReview";
 import Users from "./Pages/Dashboard/Users";
 import RequireAdmin from "./Pages/Login/RequireAdmin";
-import AddDoctor from "./Pages/Dashboard/AddDoctor";
-import ManageDoctors from "./Pages/Dashboard/ManageDoctors";
+import AddDoctor from "./Pages/Dashboard/AddProduct";
 import Payment from "./Pages/Dashboard/Payment";
 import NotFound from "./Pages/Shared/NotFound";
 import Portfolio from "./Pages/My Portfolio/Portfolio";
 import Blog from "./Pages/Blog/Blog";
 import PartDetails from "./Pages/PartDetails/PartDetails";
 import MyOrder from "./Pages/Dashboard/MyOrder";
+import MyProfile from "./Pages/Dashboard/MyProfile";
+import ManageAllOrder from "./Pages/Dashboard/ManageAllOrder";
+import ManageProducts from "./Pages/Dashboard/ManageProducts";
 
 function App() {
   return (
@@ -55,12 +56,12 @@ function App() {
             </RequireAuth>
           }
         >
-          <Route index element={<MyOrder></MyOrder>}></Route>
+          <Route index element={<MyProfile></MyProfile>}></Route>
           <Route path="review" element={<MyReview></MyReview>}></Route>
-          <Route path="history" element={<MyHistory></MyHistory>}></Route>
+          <Route path="order" element={<MyOrder></MyOrder>}></Route>
           <Route path="payment/:id" element={<Payment></Payment>}></Route>
           <Route
-            path="users"
+            path="user"
             element={
               <RequireAdmin>
                 <Users></Users>{" "}
@@ -68,7 +69,7 @@ function App() {
             }
           ></Route>
           <Route
-            path="addDoctor"
+            path="addProduct"
             element={
               <RequireAdmin>
                 <AddDoctor></AddDoctor>
@@ -76,10 +77,18 @@ function App() {
             }
           ></Route>
           <Route
-            path="manageDoctor"
+            path="manageAllOrders"
             element={
               <RequireAdmin>
-                <ManageDoctors></ManageDoctors>
+                <ManageAllOrder></ManageAllOrder>
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="manageProducts"
+            element={
+              <RequireAdmin>
+                <ManageProducts></ManageProducts>
               </RequireAdmin>
             }
           ></Route>

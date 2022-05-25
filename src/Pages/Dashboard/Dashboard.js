@@ -19,27 +19,34 @@ const Dashboard = () => {
       </div>
       <div className="drawer-side">
         <label htmlFor="dashboard-sidebar" className="drawer-overlay"></label>
-        <ul className="menu p-4 overflow-y-auto w-40 bg-base-100 text-base-content">
+        <ul className="menu overflow-y-auto w-40 bg-base-100 text-base-content">
           {/* <!-- Sidebar content here --> */}
+          {!admin && (
+            <>
+              <li>
+                <Link to="/dashboard/order">My Order</Link>
+              </li>
+              <li>
+                <Link to="/dashboard/review">My Review</Link>
+              </li>
+            </>
+          )}
           <li>
-            <Link to="/dashboard">My Orders</Link>
-          </li>
-          <li>
-            <Link to="/dashboard/review">My Review</Link>
-          </li>
-          <li>
-            <Link to="/dashboard/history">My History</Link>
+            <Link to="/dashboard">My Profile</Link>
           </li>
           {admin && (
             <>
               <li>
-                <Link to="/dashboard/users">All Users</Link>
+                <Link to="/dashboard/user">Make Admin</Link>
               </li>
               <li>
-                <Link to="/dashboard/addDoctor">Add a Doctor</Link>
+                <Link to="/dashboard/addProduct">Add a Product</Link>
               </li>
               <li>
-                <Link to="/dashboard/manageDoctor">Manage Doctors</Link>
+                <Link to="/dashboard/manageAllOrders">Manage All Orders</Link>
+              </li>
+              <li>
+                <Link to="/dashboard/manageProducts">Manage Products</Link>
               </li>
             </>
           )}

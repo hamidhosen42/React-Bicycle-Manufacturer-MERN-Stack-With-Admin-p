@@ -24,11 +24,11 @@ const Navbar = () => {
           Home
         </Link>
       </li>
-      <li>
+      {/* <li>
         <Link className="font-bold" to="/appointment">
           APPOINTMENT
         </Link>
-      </li>
+      </li> */}
       <li>
         <Link className="font-bold" to="/portfolio ">
           My Portfolio

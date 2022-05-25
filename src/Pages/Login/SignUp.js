@@ -61,7 +61,7 @@ const SignUp = () => {
     toast("Sign Up Success");
   };
 
-  return (
+return (
     <div className="mt-11 mb-20 flex h-screen justify-center items-center">
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">
