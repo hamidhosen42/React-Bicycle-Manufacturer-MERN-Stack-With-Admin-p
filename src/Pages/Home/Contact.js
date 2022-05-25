@@ -1,5 +1,5 @@
 import React from "react";
-import bgimg from "../../assets/images/banner1.jpg";
+import bgimg from "../../assets/banner/banner2.jpg";
 import PrimaryButton from "../Shared/PrimaryButton";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";

@@ -13,15 +13,14 @@ const Parts = () => {
   }
 
   return (
-    <div className="my-28 px-12">
+    <div className="px-12 bg-base-200">
       <h1 className="pb-10 font-bold text-center text-2xl text-teal-500 pt-5 ">
-        PARTS
+        BYCYCLE PARTS
       </h1>
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-        {
-        parts.slice(-6).map((part) => (
-            <Part key={part._id} part={part}></Part>
-          ))}
+        {parts.slice(-6).map((part) => (
+          <Part key={part._id} part={part}></Part>
+        ))}
       </div>
     </div>
   );

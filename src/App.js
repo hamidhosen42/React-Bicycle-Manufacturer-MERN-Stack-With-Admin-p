@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Appointment from "./Pages/Appointment/Appointment";
 import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
 import RequireAuth from "./Pages/Login/RequireAuth";
@@ -35,14 +34,6 @@ function App() {
           element={
             <RequireAuth>
               <PartDetails></PartDetails>
-            </RequireAuth>
-          }
-        ></Route>
-        <Route
-          path="/appointment"
-          element={
-            <RequireAuth>
-              <Appointment></Appointment>
             </RequireAuth>
           }
         ></Route>

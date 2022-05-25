@@ -1,6 +1,6 @@
 import React from "react";
-import man from "../../assets/images/man.jpg";
-import women from "../../assets/images/women.jpg";
+import man from "../../assets/man.jpg";
+import women from "../../assets/women.jpg";
 
 const Manpart = () => {
   return (

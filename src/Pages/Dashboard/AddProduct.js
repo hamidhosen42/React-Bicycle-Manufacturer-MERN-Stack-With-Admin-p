@@ -51,10 +51,10 @@ const AddProduct = () => {
             .then((res) => res.json())
             .then((inserted) => {
               if (inserted.insertedId) {
-                toast.success("Product added successfully");
+                toast.success("Bicycle parts added successfully");
                 reset();
               } else {
-                toast.error("Failed to add the Product");
+                toast.error("Failed to add the bicycle parts");
               }
             });
         }
@@ -65,7 +65,7 @@ const AddProduct = () => {
     <div className="mb-20 mt-11 flex h-screen justify-center items-center">
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">
-          <h2 className="text-2xl">Add a New Product</h2>
+          <h2 className="text-2xl">Add a New Bicycle Part</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-control w-full max-w-xs mt-4">
               <input
