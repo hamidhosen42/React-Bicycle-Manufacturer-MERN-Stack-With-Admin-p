@@ -1,64 +1,52 @@
-// import React, { useState } from "react";
-// import { useQuery } from "react-query";
-// import Loading from "../Shared/Loading";
-// import DeleteConfirmModal from "./DeleteConfirmModal";
-// import DoctorRow from "./DoctorRow";
+import React, { useState } from "react";
+import Loading from "../Shared/Loading";
+import { useQuery } from "react-query";
 
-// const ManageAllOrder = () => {
-//   const [deletingDoctor, setDeletingDoctor] = useState(null);
+const ManageAllOrder = () => {
 
-//   const {
-//     data: doctors,
-//     isLoading,
-//     refetch,
-//   } = useQuery("doctors", () =>
-//     fetch("http://localhost:5000/doctor", {
-//       headers: {
-//         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-//       },
-//     }).then((res) => res.json())
-//   );
+  const {
+    data: orders,
+    isLoading,
+    refetch,
+  } = useQuery("orders", () =>
+    fetch("http://localhost:5000/orders").then((res) => res.json())
+  );
 
-//   if (isLoading) {
-//     return <Loading></Loading>;
-//   }
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
 
-//   return (
-//     <div className="p-3">
-//       <h2 className="text-2xl pb-3">Manage Doctors: {doctors.length}</h2>
-//       <div className="overflow-x-auto">
-//         <table className="table w-full">
-//           <thead>
-//             <tr>
-//               <th></th>
-//               <th>Avatar</th>
-//               <th>Name</th>
-//               <th>Specialty</th>
-//               <th>Action</th>
-//             </tr>
-//           </thead>
-//           <tbody>
-//             {doctors.map((doctor, index) => (
-//               <DoctorRow
-//                 key={doctor._key}
-//                 doctor={doctor}
-//                 index={index}
-//                 refetch={refetch}
-//                 setDeletingDoctor={setDeletingDoctor}
-//               ></DoctorRow>
-//             ))}
-//           </tbody>
-//         </table>
-//       </div>
-//       {deletingDoctor && (
-//         <DeleteConfirmModal
-//           deletingDoctor={deletingDoctor}
-//           refetch={refetch}
-//           setDeletingDoctor={setDeletingDoctor}
-//         ></DeleteConfirmModal>
-//       )}
-//     </div>
-//   );
-// };
+  return (
+    <div className="p-3">
+      {/* <h2 className="text-2xl pb-3">Manage Doctors: {doctors.length}</h2> */}
+      <div className="overflow-x-auto">
+        <table className="table w-full">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Person Name</th>
+              <th>Parts Name</th>
+              <th>Quantity</th>
+              <th>Total Price</th>
+              <th>Payment</th>
+            </tr>
+          </thead>
+          <tbody>
+            {orders.map((order, index) => (
+              <tr>
+                <th>{index + 1}</th>
+                <th>{order.displayName}</th>
+                <td>{order.part_name}</td>
+                <td>{order.quantity}</td>
+                <td>{order.totalprice}</td>
+                <td>{order.paid}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
 
-// export default ManageAllOrder;
+export default ManageAllOrder;
