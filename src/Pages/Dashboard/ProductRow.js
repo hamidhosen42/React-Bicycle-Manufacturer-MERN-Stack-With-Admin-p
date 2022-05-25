@@ -6,24 +6,19 @@ const ProductRow = ({ parts, index, refetch, setDeletingProduct }) => {
     parts[index];
 
   const handleDelete = (id) => {
-    const proceed = window.confirm("Are you sure you want to delete??");
-    
-    if(proceed)
-    {
-        fetch(`http://localhost:5000/part/${id}`, {
-          method: "DELETE",
-          headers: {
-            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-          },
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.deletedCount) {
-              toast.success(`Product: ${name} is deleted.`);
-              refetch();
-            }
-          });
-    }
+    fetch(`http://localhost:5000/part/${id}`, {
+      method: "DELETE",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount) {
+          toast.success(`Product: ${name} is deleted.`);
+          refetch();
+        }
+      });
   };
 
   return (
@@ -35,8 +30,7 @@ const ProductRow = ({ parts, index, refetch, setDeletingProduct }) => {
       <td>{price} (per unit)</td>
       <td>
         <label
-          onClick={() => handleDelete(_id)}
-        //   htmlFor="delete-confirm-product"
+          htmlFor="delete-confirm-product"
           className="btn btn-xs btn-error"
         >
           Cancel
@@ -54,12 +48,13 @@ const ProductRow = ({ parts, index, refetch, setDeletingProduct }) => {
             Are you sure you want to delete ${name}!
           </h3>
           <div className="modal-action">
-            <button
+            <label
               onClick={() => handleDelete(_id)}
+              htmlFor="delete-confirm-product"
               className="btn btn-xs btn-error"
             >
               Delete
-            </button>
+            </label>
             <label htmlFor="delete-confirm-product" className="btn btn-xs">
               Cancel
             </label>

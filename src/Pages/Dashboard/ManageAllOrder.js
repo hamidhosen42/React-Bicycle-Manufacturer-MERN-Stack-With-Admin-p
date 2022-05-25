@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Loading from "../Shared/Loading";
 import { useQuery } from "react-query";
+import { toast } from "react-toastify";
 
 const ManageAllOrder = () => {
-
   const {
     data: orders,
     isLoading,
@@ -12,13 +12,31 @@ const ManageAllOrder = () => {
     fetch("http://localhost:5000/orders").then((res) => res.json())
   );
 
+  const handleShiped = (id, paid) => {
+    console.log(typeof paid);
+
+    fetch(`http://localhost:5000/shiped/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+        // authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+      body: JSON.stringify({ paid }),
+    })
+      .then((res) => res.json())
+      .then((inserted) => {
+        toast("Payment update Success");
+        refetch();
+      });
+  };
+
   if (isLoading) {
     return <Loading></Loading>;
   }
 
   return (
     <div className="p-3">
-      {/* <h2 className="text-2xl pb-3">Manage Doctors: {doctors.length}</h2> */}
+      <h2 className="text-2xl pb-3">Manage All Order: {orders.length}</h2>
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>
@@ -33,13 +51,30 @@ const ManageAllOrder = () => {
           </thead>
           <tbody>
             {orders.map((order, index) => (
-              <tr>
+              <tr key={index}>
                 <th>{index + 1}</th>
+                <th>{order._id}</th>
                 <th>{order.displayName}</th>
                 <td>{order.part_name}</td>
                 <td>{order.quantity}</td>
                 <td>{order.totalprice}</td>
-                <td>{order.paid}</td>
+                <td>
+                  {order.paid === "true" && (
+                    <button className="btn btn-xs btn-success">Paid</button>
+                  )}
+                  {order.paid === "false" && (
+                    <button
+                      onClick={() => handleShiped(order._id, order.paid)}
+                      className="btn btn-xs 
+                    btn-success"
+                    >
+                      shipped now
+                    </button>
+                  )}
+                  {!order.paid && (
+                    <button className="btn btn-xs btn-success">Unpaind</button>
+                  )}
+                </td>
               </tr>
             ))}
           </tbody>

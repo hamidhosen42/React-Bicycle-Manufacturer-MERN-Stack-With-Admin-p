@@ -2,6 +2,7 @@ import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
 
@@ -11,22 +12,18 @@ const MyOrder = () => {
   const navigate = useNavigate();
 
     const handleUserDelete = (id) => {
-      const proceed = window.confirm("Are you sure you want to delete??");
 
-      if (proceed) {
-        const url = `http://localhost:5000/user/${id}`;
-
-        fetch(url, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.deletedCount > 0) {
-              const remaining = user.filter((user) => user._id !== id);
-              setOrder(remaining);
-            }
-          });
-      }
+      fetch(`http://localhost:5000/order/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            const remaining = user.filter((user) => user._id !== id);
+            setOrder(remaining);
+            toast.success("Order is deleted.");
+          }
+        });
     };
 
   useEffect(() => {
@@ -79,14 +76,17 @@ const MyOrder = () => {
                   {a.totalprice && !a.paid && (
                     <Link to={`/dashboard/payment/${a._id}`}>
                       <button className="btn btn-xs btn-success">
-                        Not Pain
+                        Not Paid
                       </button>
                     </Link>
                   )}
-                  {a.totalprice && a.paid && (
+                  {a.totalprice && a.paid === "false" && (
+                    <button className="btn btn-xs btn-success">Panding</button>
+                  )}
+                  {a.totalprice && a.paid === "true" && (
                     <div>
                       <p>
-                        <span className="text-success">Paid</span>
+                        <span className="text-success">Panding</span>
                       </p>
                       <p>
                         Transaction id:{" "}
@@ -97,9 +97,8 @@ const MyOrder = () => {
                 </td>
                 <td>
                   <label
-                    onClick={() => handleUserDelete(a._id)}
                     disabled={a.totalprice && a.paid}
-                    // for="booking-modal"
+                    htmlFor="booking-modal"
                     class="btn btn-xs text-white"
                   >
                     Cancel
@@ -109,20 +108,23 @@ const MyOrder = () => {
                 <input
                   type="checkbox"
                   id="booking-modal"
-                  class="modal-toggle"
+                  className="modal-toggle"
                 />
-                <div class="modal modal-bottom sm:modal-middle">
-                  <div class="modal-box">
-                    <h3 class="font-bold text-lg">
-                      Congratulations random Interner user!
+                <div className="modal modal-bottom sm:modal-middle">
+                  <div className="modal-box">
+                    <h3 className="font-bold text-lg text-red-500">
+                      Are you sure you want to delete ${a.part_name}!
                     </h3>
-                    <p class="py-4">
-                      You've been selected for a chance to get one year of
-                      subscription to use Wikipedia for free!
-                    </p>
-                    <div class="modal-action">
-                      <label for="booking-modal" class="btn">
-                        Yay!
+                    <div className="modal-action">
+                      <label
+                        onClick={() => handleUserDelete(a._id)}
+                        htmlFor="booking-modal"
+                        className="btn btn-xs btn-error"
+                      >
+                        Delete
+                      </label>
+                      <label htmlFor="booking-modal" className="btn btn-xs">
+                        Cancel
                       </label>
                     </div>
                   </div>
