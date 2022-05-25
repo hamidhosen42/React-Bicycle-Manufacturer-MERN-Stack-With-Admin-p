@@ -1,5 +1,12 @@
 import React from "react";
-import cycle1 from "../../assets/images/banner1.jpg";
+import banner1 from "../../assets/banner/banner1.png";
+import banner2 from "../../assets/banner/banner2.jpg";
+import banner3 from "../../assets/banner/banner3.png";
+import banner4 from "../../assets/banner/banner4.jpg";
+import banner5 from "../../assets/banner/banner5.jpg";
+import banner6 from "../../assets/banner/banner6.png";
+import "./Banner.css";
+
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 
@@ -7,21 +14,25 @@ const Banner = () => {
   return (
     <div>
       <Carousel autoPlay infiniteLoop>
-        <div id="slide1" class="carousel-item relative w-full">
-          <img src={cycle1} class="w-full" alt="" />
+        <div>
+          <img src={banner1} alt=""/>
         </div>
-        <div id="slide1" class="carousel-item relative w-full">
-          <img src={cycle1} class="w-full" alt="" />
+        <div>
+          <img src={banner2} alt=""/>
         </div>
-        <div id="slide1" class="carousel-item relative w-full">
-          <img src={cycle1} class="w-full" alt="" />
+        <div>
+          <img src={banner3} alt=""/>
         </div>
-        <div id="slide1" class="carousel-item relative w-full">
-          <img src={cycle1} class="w-full" alt="" />
+        <div>
+          <img src={banner4} alt=""/>
         </div>
-        <div id="slide1" class="carousel-item relative w-full">
-          <img src={cycle1} class="w-full" alt="" />
+        <div>
+          <img src={banner5} alt=""/>
         </div>
+        <div>
+          <img src={banner6} alt=""/>
+        </div>
+        
       </Carousel>
     </div>
   );

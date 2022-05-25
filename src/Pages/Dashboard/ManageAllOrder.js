@@ -13,7 +13,6 @@ const ManageAllOrder = () => {
   );
 
   const handleShiped = (id, paid) => {
-    console.log(typeof paid);
 
     fetch(`http://localhost:5000/shiped/${id}`, {
       method: "PUT",
