@@ -19,8 +19,8 @@ import Blog from "./Pages/Blog/Blog";
 import PartDetails from "./Pages/PartDetails/PartDetails";
 import MyOrder from "./Pages/MyOrder/MyOrder";
 import ManageAllOrder from "./Pages/Dashboard/ManageAllOrder";
-import ManageProducts from "./Pages/Dashboard/ManageProducts";
 import MyProfile from "./Pages/MyProfile/MyProfile";
+import ManageProducts from "./Pages/ManageProducts/ManageProducts";
 
 function App() {
   return (

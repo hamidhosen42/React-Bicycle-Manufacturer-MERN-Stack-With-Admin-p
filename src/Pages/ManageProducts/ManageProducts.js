@@ -1,9 +1,28 @@
 import React, { useState } from "react";
 import { useQuery } from "react-query";
+import { toast } from "react-toastify";
 import Loading from "../Shared/Loading";
+import ManageModal from "./ManageModal";
 import ProductRow from "./ProductRow";
 
 const ManageProducts = () => {
+  const [product, setProduct] = useState(null);
+
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5000/part/${id}`, {
+      method: "DELETE",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount) {
+          toast.success("Parts is deleted.");
+          refetch();
+        }
+      });
+  };
 
   const {
     data: parts,
@@ -39,9 +58,17 @@ const ManageProducts = () => {
                 parts={parts}
                 index={index}
                 refetch={refetch}
+                setProduct={setProduct}
               ></ProductRow>
             ))}
           </tbody>
+          {product && (
+            <ManageModal
+              product={product}
+              setProduct={setProduct}
+              handleDelete={handleDelete}
+            ></ManageModal>
+          )}
         </table>
       </div>
     </div>
