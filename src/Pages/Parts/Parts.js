@@ -13,7 +13,7 @@ const Parts = () => {
   }
 
   return (
-    <div className="px-12 bg-base-200">
+    <div className="px-12 bg-base-200 pb-10">
       <h1 className="pb-10 font-bold text-center text-2xl text-teal-500 pt-5 ">
         BYCYCLE PARTS
       </h1>
