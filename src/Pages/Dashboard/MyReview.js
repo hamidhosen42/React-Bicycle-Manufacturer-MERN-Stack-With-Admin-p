@@ -47,7 +47,7 @@ const MyReview = () => {
             .then((res) => res.json())
             .then((inserted) => {
               if (inserted.insertedId) {
-                toast.success("Doctor added successfully");
+                toast.success("Review added successfully");
                 reset();
               } else {
                 toast.error("Failed to add the doctor");

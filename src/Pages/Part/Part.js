@@ -22,7 +22,7 @@ const Part = ({ part }) => {
         <img src={img} alt="Shoes" className="rounded-xl img-height" />
       </figure>
       <div className="card-body items-center ">
-        <h2 className="card-title text-start">Name:{name}</h2>
+        <h2 className="card-title text-start">Parts Name:{name}</h2>
         <p>Price : {price} (per unit)</p>
         <p>Minimum Quantity : {minimum_quantity}</p>
         <p>Available Quantity : {available_quantity}</p>
