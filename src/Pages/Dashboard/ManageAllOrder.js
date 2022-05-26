@@ -9,12 +9,13 @@ const ManageAllOrder = () => {
     isLoading,
     refetch,
   } = useQuery("orders", () =>
-    fetch("http://localhost:5000/orders").then((res) => res.json())
+    fetch("https://floating-inlet-46757.herokuapp.com/orders").then((res) =>
+      res.json()
+    )
   );
 
   const handleShiped = (id, paid) => {
-
-    fetch(`http://localhost:5000/shiped/${id}`, {
+    fetch(`https://floating-inlet-46757.herokuapp.com/shiped/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

@@ -41,7 +41,7 @@ const PartDetails = () => {
         totalprice: totalprice,
       };
 
-      fetch("http://localhost:5000/order", {
+      fetch("https://floating-inlet-46757.herokuapp.com/order", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -74,7 +74,6 @@ const PartDetails = () => {
               <p>Minimum Quantity : {part.minimum_quantity}</p>
               <p>Available Quantity : {part.available_quantity}</p>
               <p className="text-justify">{part.description}</p>
-              <button className="btn btn-primary">PURCHASE</button>
             </div>
           </div>
         </div>

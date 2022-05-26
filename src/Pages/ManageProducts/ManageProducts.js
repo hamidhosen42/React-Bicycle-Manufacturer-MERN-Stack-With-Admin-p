@@ -9,7 +9,7 @@ const ManageProducts = () => {
   const [product, setProduct] = useState(null);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/part/${id}`, {
+    fetch(`https://floating-inlet-46757.herokuapp.com/part/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -29,7 +29,9 @@ const ManageProducts = () => {
     isLoading,
     refetch,
   } = useQuery("part", () =>
-    fetch("http://localhost:5000/part").then((res) => res.json())
+    fetch("https://floating-inlet-46757.herokuapp.com/part").then((res) =>
+      res.json()
+    )
   );
 
   if (isLoading) {

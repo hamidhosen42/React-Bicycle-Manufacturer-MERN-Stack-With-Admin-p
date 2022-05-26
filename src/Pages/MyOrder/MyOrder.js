@@ -15,7 +15,7 @@ const MyOrder = () => {
   const navigate = useNavigate();
 
   const handleUserDelete = (id) => {
-    fetch(`http://localhost:5000/order/${id}`, {
+    fetch(`https://floating-inlet-46757.herokuapp.com/order/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -30,12 +30,15 @@ const MyOrder = () => {
 
   useEffect(() => {
     if (user) {
-      fetch(`http://localhost:5000/order?orderEmail=${user.email}`, {
-        method: "GET",
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      })
+      fetch(
+        `https://floating-inlet-46757.herokuapp.com/order?orderEmail=${user.email}`,
+        {
+          method: "GET",
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
+      )
         .then((res) => {
           if (res.status === 401 || res.status === 403) {
             signOut(auth);

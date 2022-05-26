@@ -40,7 +40,7 @@ const AddProduct = () => {
 
           console.log(profile);
           // send to your database
-          fetch("http://localhost:5000/addProduct", {
+          fetch("https://floating-inlet-46757.herokuapp.com/addProduct", {
             method: "POST",
             headers: {
               "content-type": "application/json",

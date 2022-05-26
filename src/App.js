@@ -9,7 +9,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import MyReview from "./Pages/Dashboard/MyReview";
-import Users from "./Pages/Dashboard/Users";
 import RequireAdmin from "./Pages/Login/RequireAdmin";
 import AddDoctor from "./Pages/Dashboard/AddProduct";
 import Payment from "./Pages/Dashboard/Payment";
@@ -21,6 +20,7 @@ import MyOrder from "./Pages/MyOrder/MyOrder";
 import ManageAllOrder from "./Pages/Dashboard/ManageAllOrder";
 import MyProfile from "./Pages/MyProfile/MyProfile";
 import ManageProducts from "./Pages/ManageProducts/ManageProducts";
+import Users from "./Pages/Users/Users";
 
 function App() {
   return (
@@ -55,7 +55,7 @@ function App() {
             path="user"
             element={
               <RequireAdmin>
-                <Users></Users>{" "}
+                <Users></Users>
               </RequireAdmin>
             }
           ></Route>

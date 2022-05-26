@@ -10,7 +10,7 @@ const Users = () => {
     isLoading,
     refetch,
   } = useQuery("user", () =>
-    fetch("http://localhost:5000/user", {
+    fetch("https://floating-inlet-46757.herokuapp.com/user", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -39,6 +39,7 @@ const Users = () => {
             {users.map((user, index) => (
               <UserRow
                 key={user._id}
+                isLoading={isLoading}
                 index={index}
                 user={user}
                 refetch={refetch}

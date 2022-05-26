@@ -19,9 +19,9 @@ const MyProfile = () => {
     isLoading,
     refetch,
   } = useQuery("profile", () =>
-    fetch(`http://localhost:5000/profile/${user.email}`).then((res) =>
-      res.json()
-    )
+    fetch(
+      `https://floating-inlet-46757.herokuapp.com/profile/${user.email}`
+    ).then((res) => res.json())
   );
 
   console.log(users);
@@ -40,7 +40,7 @@ const MyProfile = () => {
       linkdin: data.linkdin,
     };
 
-    fetch(`http://localhost:5000/profile/${user.email}`, {
+    fetch(`https://floating-inlet-46757.herokuapp.com/profile/${user.email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

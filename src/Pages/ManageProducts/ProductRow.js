@@ -7,7 +7,6 @@ const ProductRow = ({ parts, index, refetch, setProduct }) => {
   return (
     <tr ke={index}>
       <th>{index + 1}</th>
-      <th>{_id}</th>
       <td>{name}</td>
       <td>{minimum_quantity}</td>
       <td>{available_quantity}</td>

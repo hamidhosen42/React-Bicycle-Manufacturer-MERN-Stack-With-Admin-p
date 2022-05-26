@@ -11,7 +11,7 @@ import { Carousel } from "react-responsive-carousel";
 
 const Banner = () => {
   return (
-    <div className="bg-base-200">
+    <div className="bg-base-200 mb-[-20px]">
       <Carousel autoPlay infiniteLoop>
         <div>
           <img src={banner1} alt="" />

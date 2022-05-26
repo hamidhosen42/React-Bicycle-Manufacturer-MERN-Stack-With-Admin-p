@@ -5,7 +5,9 @@ import Loading from "../Shared/Loading";
 
 const Parts = () => {
   const { data: parts, isLoading } = useQuery("part", () =>
-    fetch("http://localhost:5000/part").then((res) => res.json())
+    fetch("https://floating-inlet-46757.herokuapp.com/part").then((res) =>
+      res.json()
+    )
   );
 
   if (isLoading) {

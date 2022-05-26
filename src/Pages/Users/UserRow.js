@@ -1,30 +1,12 @@
 import React from "react";
 import { toast } from "react-toastify";
+import Loading from "../Shared/Loading";
 
-const UserRow = ({ user, index, refetch }) => {
-  const { email, _id,role } = user;
-
-  const handleUserDelete = (id) => {
-    const proceed = window.confirm("Are you sure you want to remove user?");
-
-    if (proceed) {
-      console.log("Deleting user with id", id);
-      const url = `http://localhost:5000/user/${id}`;
-
-      fetch(url, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.deletedCount > 0) {
-            const remaining = user.filter((user) => user._id !== id);
-          }
-        });
-    }
-  };
+const UserRow = ({ isLoading, index, user, refetch }) => {
+  const { email, _id, role } = user;
 
   const makeAdmin = () => {
-    fetch(`http://localhost:5000/user/admin/${email}`, {
+    fetch(`https://floating-inlet-46757.herokuapp.com/user/admin/${email}`, {
       method: "PUT",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -44,6 +26,30 @@ const UserRow = ({ user, index, refetch }) => {
         }
       });
   };
+
+  const handleUserDelete = (id) => {
+    const proceed = window.confirm("Are you sure you want to remove user?");
+
+    if (proceed) {
+      console.log("Deleting user with id", id);
+      const url = `https://floating-inlet-46757.herokuapp.com/user/${id}`;
+
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            const remaining = user.filter((user) => user._id !== id);
+            refetch();
+          }
+        });
+    }
+  };
+
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
 
   return (
     <tr>
