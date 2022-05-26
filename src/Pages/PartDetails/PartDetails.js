@@ -27,7 +27,7 @@ const PartDetails = () => {
       parseInt(data.quantity) > availablequantity
     ) {
       toast.error(
-        `Minimum order ${minquantity} pieces and Maximimum order ${availablequantity}pieces`
+        `Minimum order ${minquantity} pieces and Maximimum order ${availablequantity} pieces`
       );
     } else {
       const totalprice = parseInt(data.quantity) * price;
@@ -45,7 +45,7 @@ const PartDetails = () => {
         method: "POST",
         headers: {
           "content-type": "application/json",
-          // authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
         body: JSON.stringify(order),
       })
@@ -174,7 +174,7 @@ const PartDetails = () => {
 
                 <input
                   type="number"
-                  placeholder={`Minimum Quantity ${part.minimum_quantity}`}
+                  placeholder={`Minimum ${part.minimum_quantity} and Available ${part.available_quantity} Quantity`}
                   className="input input-bordered w-full max-w-xs"
                   {...register("quantity", {
                     required: {
