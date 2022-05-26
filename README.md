@@ -12,3 +12,8 @@
 8. Only admin Product added and delete
 9. Admin can permission user admin system and admin can delete user.
 10. Admin manage all product add All order.
+
+
+### admin:
+Email : hamidhosen4@gmail.com
+pass: 123456
