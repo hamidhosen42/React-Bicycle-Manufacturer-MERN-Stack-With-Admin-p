@@ -14,7 +14,11 @@ const MyProfile = () => {
     handleSubmit,
   } = useForm();
 
-  const { data: users, isLoading,refetch } = useQuery("profile", () =>
+  const {
+    data: users,
+    isLoading,
+    refetch,
+  } = useQuery("profile", () =>
     fetch(`http://localhost:5000/profile/${user.email}`).then((res) =>
       res.json()
     )

@@ -21,7 +21,7 @@ const OrderRow = ({ index, order, setMyOrder }) => {
         {totalprice && paid === "true" && (
           <div>
             <p>
-              <span className="text-success">Panding</span>
+              <span className="text-success">Paid</span>
             </p>
             <p>
               Transaction id:{" "}

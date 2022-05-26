@@ -18,7 +18,7 @@ const ManageAllOrder = () => {
       method: "PUT",
       headers: {
         "content-type": "application/json",
-        // authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
       body: JSON.stringify({ paid }),
     })
@@ -52,7 +52,6 @@ const ManageAllOrder = () => {
             {orders.map((order, index) => (
               <tr key={index}>
                 <th>{index + 1}</th>
-                <th>{order._id}</th>
                 <th>{order.displayName}</th>
                 <td>{order.part_name}</td>
                 <td>{order.quantity}</td>
