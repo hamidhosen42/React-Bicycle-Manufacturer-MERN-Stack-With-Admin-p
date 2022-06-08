@@ -14,6 +14,23 @@
 9. Admin can permission user admin system and admin can delete user.
 10. Admin manage all product add All order.
 
+### Technologies used
+
+- React
+
+- React-bootstrap
+
+- Firebase
+
+- React-firebase-hooks
+
+- React-router
+
+- React-toastify
+
+- React-form-hooks
+
+- Heroku
 
 ### admin:
 Email : hamidhosen4@gmail.com
