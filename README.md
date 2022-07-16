@@ -2,17 +2,23 @@
 ### Server Link : https://floating-inlet-46757.herokuapp.com/
 ### Server Side Code : https://github.com/hamidhosen42/React-Bicycle-Manufacturer-MERN-Stack-With-Server-Side-Admin-p
 ### Project Live Link : https://bicycle-manufacturer-client.web.app/
-### Main Features:
-1. Using reactjs
-2. Tailwind CSS , Daisyui Using
-3. This Website Card Payment System.
-4. This Website Admin and user system
-5. There are two social login system
-6. If User parts order then paid system but admin not confirm paid user system panding show payment.
-7. JWT using .and set jwt local system
-8. Only admin Product added and delete
-9. Admin can permission user admin system and admin can delete user.
-10. Admin manage all product add All order.
+
+## Website Features
+
+- This website offers you with all of the latest bicycle.
+
+- You may also manage your car inventory by logging in.
+
+- To add item in the inventory, you must first log in or register on our website.
+
+- In My Items page, you'll see the automobiles you've added. You may also log in and manually add automobiles to the inventory.
+
+- On our website, we also offer a number of consumer reviews.
+
+- This website also offers a number of FAQs on the blog page.
+
+- On the website, there is also a about us page where you may learn more about us.
+
 
 ### Technologies used
 
