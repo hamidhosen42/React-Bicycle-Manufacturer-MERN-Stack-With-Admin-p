@@ -22,21 +22,16 @@
 
 ### Technologies used
 
-- React
-
-- React-bootstrap
-
-- Firebase
-
-- React-firebase-hooks
-
-- React-router
-
-- React-toastify
-
-- React-form-hooks
-
-- Heroku
+- React.Js 
+- React Router
+- Tailwind CSS
+- Daisy UI
+- Firebase 
+- Authentication
+- Stripe Payment Method
+- Node.JS,
+- Express JS
+- MongoDB
 
 ### admin:
 Email : hamidhosen4@gmail.com
